@@ -3,7 +3,7 @@
 if [ "$1" -eq "0" ] ; then 
 	echo "Creating tarball of ./pass/*"
 	tar -czf pass.tgz pass/*
-	echo "Please select a pgp passphrase to encrypt the file"
+	echo "Please select a gpg passphrase to encrypt the file"
 	gpg -c pass.tgz
 	echo "Deleting pass.tgz"
 	rm pass.tgz
@@ -18,8 +18,8 @@ if [ "$1" -eq "1" ] ; then
 	gpg pass.tgz.gpg
 	echo "Extracting tarball pass.tgz"
 	tar -xzf pass.tgz
-	echo "Deleting pass.tgz.gpg"
-	rm pass.tgz.gpg
+	echo "Deleting pass.tgz.gpg and pass.tgz"
+	rm pass.tgz*
 	echo "Done..!" 
 	fortune ;
 fi 
